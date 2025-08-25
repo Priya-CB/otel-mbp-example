@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+       stage('Checkout') {
+            steps {
+                checkout scm
+            }
+       }
         stage('Stage-0') {
             steps {
                 withMockLoad(averageDuration: 3, testFailureIgnore: false) {
